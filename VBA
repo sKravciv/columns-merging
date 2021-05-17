@@ -1,0 +1,16 @@
+Sub columns()
+Do While Cells(1, 2) <> ""
+    Range("B1").Select
+    If Cells(2, 2) <> "" Then
+      Range(Selection, Selection.End(xlDown)).Select
+      Selection.Copy
+    Else
+      Selection.Copy
+    End If
+    Cells(Rows.Count, 1).End(xlUp).Offset(1, 0).Select
+    ActiveSheet.Paste
+    Columns("B:B").Select
+    Application.CutCopyMode = False
+    Selection.Delete Shift:=xlToLeft
+Loop
+End Sub
