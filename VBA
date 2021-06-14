@@ -1,4 +1,6 @@
-Sub columns()
+Sub sloupce()
+        Selection.SpecialCells(xlCellTypeBlanks).Select
+        Selection.Delete Shift:=xlUp
 Do While Cells(1, 2) <> ""
     Range("B1").Select
     If Cells(2, 2) <> "" Then
@@ -9,7 +11,7 @@ Do While Cells(1, 2) <> ""
     End If
     Cells(Rows.Count, 1).End(xlUp).Offset(1, 0).Select
     ActiveSheet.Paste
-    Columns("B:B").Select
+    columns("B:B").Select
     Application.CutCopyMode = False
     Selection.Delete Shift:=xlToLeft
 Loop
